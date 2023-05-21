@@ -1,0 +1,112 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import datetime as dt
+
+ data= pd.read_csv('actions2load.csv')
+data.head()
+
+data.shape
+data.dtypes
+
+data.nunique().plot.bar(figsize=(12,6))
+plt.ylabel('Number of unique categories')
+plt.xlabel('variables')
+plt.title('cardinality')
+
+data.isnull().sum()
+
+data.nunique()
+
+data['product_id']
+
+data['event_type'].unique()
+
+data['event_type']
+data['event_type'].value_counts()
+Event_Type = data['event_type'].value_counts()
+ Event_Type = Event_Type.to_frame().reset_index()
+ Event_Type.columns = ["event_type","frequency"]
+ Event_Type
+
+labelfre
+q = data['event_type'].value_counts() / len(data)
+labe
+
+##Detecting outlier in event_type
+fig = labelfreq.sort_values(ascending=False).plot.bar()
+fig.axhline(y=0.1, color='green')
+fig.set_ylabel('percentage of event_type within each category')
+fig.set_xlabel('variable: class')
+fig.set_title('identifying rare categories')lfreq
+
+data['account_id'].unique()
+
+##count number of interaction by each account_id
+data['account_id'].value_counts()
+
+account_idcount = data['account_id'].value_counts()
+
+account_idcount = account_idcount.to_frame().reset_index()
+account_idcount.columns = ["ID","frequency"]
+account_idcount
+
+labelfreq = data['account_id'].value_counts() / len(data)
+labelfreq
+fig = labelfreq.sort_values(ascending=False).plot.bar()
+fig.axhline(y=0.1, color='green')
+fig.set_ylabel('percentage of account_id within each category')
+fig.set_xlabel('variable: class')
+fig.set_title('identifying rare categories')
+
+data['additional_data']
+
+removing the column with missing data in the variable
+data.drop(columns=['additional_data'])
+
+
+data['product_id'].unique()
+
+data['product_id'].value_counts()
+
+product_idNo = data['product_id'].value_counts()
+ product_idNo = product_idNo.to_frame().reset_index()
+ product_idNo.columns data['event_month'] =
+product_idNo
+
+data['event_year'].value_counts()
+data['event_time'].unique()
+data['event_year'] = data['event_time'].dt.year
+data['event_time'] = pd.to_datetime(data['event_time'])
+data['event_time']
+data['event_month'] = data['event_time'].dt.month_name(locale = 'English')
+data['day_of_the_week'] = data['event_time'].dt.day_name(locale = 'English')
+data.head()
+Event_Time = data['event_time'].value_counts()
+ Event_Time = Event_Time.to_frame().reset_index()
+ Event_Time.columns = ["event_time","frequency"]
+Event_Time
+
+data['event_month'].value_counts()data['event_month'].value_counts().plot.bar(figsize =(12,6))
+plt.ylabel('Number of subscriptions')
+plt.xlabel('month of the year')
+plt.title('monthly subscription')
+
+month_frequency = data['event_month'].value_counts()/ len('event_month')
+data['day_of_the_week'].value_counts()
+data['day_of_the_week'].value_counts().plot.bar(figsize =(12,6))
+plt.ylabel('Number of subscriptions')
+plt.xlabel('Day of the week')
+plt.title('Day of the week')
+month_frequency
+
+
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from category_encoders import TargetEncoder
+
+
+
+
+
